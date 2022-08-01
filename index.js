@@ -9,15 +9,20 @@ client.once("ready", () => {
 // To stop pinging, say the Stop Ping Command in any channel.
 // Only Administrators can start pings. Will not work if the bot is already pinging.
 
-var Pinging = false
+// SETTINGS
+// ------------------------------------
 var PingRoleID = "992675099629072387"
+var PingChannelPrefix = "pings"
 var StartPingCommand = "!StartPings"
 var StopPingCommand = "!StopPings"
 var PingInterval = 100 // Milliseconds
+// ------------------------------------
+
+var Pinging = false
 
 function StartPing(Channel, Message) {
-  if (Channel.name.startsWith("pings")) {
-    Pinging = true
+  Pinging = true
+  if (Channel.name.startsWith(PingChannelPrefix)) {
     PingInterval = setInterval(function() {
       Channel.send("<@&" + PingRoleID + ">")
     }, PingInterval);
