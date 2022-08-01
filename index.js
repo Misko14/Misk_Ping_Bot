@@ -10,13 +10,13 @@ client.once("ready", () => {
 // Only Administrators can start pings. Will not work if the bot is already pinging.
 
 // SETTINGS
-// ------------------------------------
+// -----------------------------------
 var PingRoleID = "992675099629072387"
 var PingChannelPrefix = "pings"
 var StartPingCommand = "!StartPings"
 var StopPingCommand = "!StopPings"
 var PingInterval = 100 // Milliseconds
-// ------------------------------------
+// -----------------------------------
 
 var Pinging = false
 
