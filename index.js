@@ -13,13 +13,14 @@ var Pinging = false
 var PingRoleID = "992675099629072387"
 var StartPingCommand = "!StartPings"
 var StopPingCommand = "!StopPings"
+var PingInterval = 100 // Milliseconds
 
 function StartPing(Channel, Message) {
   if (Channel.name.startsWith("pings")) {
     Pinging = true
     PingInterval = setInterval(function() {
       Channel.send("<@&" + PingRoleID + ">")
-    }, 100);
+    }, PingInterval);
   }
 }
 
@@ -44,11 +45,10 @@ client.on("messageCreate", (message) => {
     message.guild.channels.cache.forEach(channel =>
       StartPing(channel, message))
   }
-    if (message.content === StopPingCommand && IsAdministrator(message) &&
+      if (message.content === StopPingCommand && IsAdministrator(message) &&
     Pinging === true) {
     message.channel.send("Stopped pinging!")
-    message.guild.channels.cache.forEach(channel =>
-      StopPing())
+      StopPing()
   }
 })
 
