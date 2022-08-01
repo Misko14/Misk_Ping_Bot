@@ -15,7 +15,7 @@ var PingRoleID = "992675099629072387"
 var PingChannelPrefix = "pings"
 var StartPingCommand = "!StartPings"
 var StopPingCommand = "!StopPings"
-var PingInterval = 500 // Milliseconds
+var PingInterval = 1000 // Milliseconds
 // -----------------------------------
 
 var Pinging = false
