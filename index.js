@@ -24,7 +24,9 @@ function StartPing(Channel, Message) {
   Pinging = true
   if (Channel.name.startsWith(PingChannelPrefix)) {
     PingInterval = setInterval(function() {
+      if (Pinging === true) {
       Channel.send("<@&" + PingRoleID + ">")
+      }
     }, PingInterval);
   }
 }
