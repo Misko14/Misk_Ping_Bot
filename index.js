@@ -46,13 +46,13 @@ function IsAdministrator(Message) {
 
 // Start Ping
 client.on("messageCreate", (message) => {
-  if (message.content === StartPingCommand && IsAdministrator(message) &&
+  if (message.content.toLowerCase() === StartPingCommand.toLowerCase() && IsAdministrator(message) &&
     Pinging === false) {
     message.channel.send("Started pinging!")
     message.guild.channels.cache.forEach(channel =>
       StartPing(channel, message))
   }
-      if (message.content === StopPingCommand && IsAdministrator(message) &&
+      if (message.content.toLowerCase() === StopPingCommand.toLowerCase() && IsAdministrator(message) &&
     Pinging === true) {
     message.channel.send("Stopped pinging!")
       StopPing()
