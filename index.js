@@ -9,13 +9,14 @@ var PingInterval = 2000 // Milliseconds (1 Second = 1000 Milliseconds)
 // -----------------------------------
 
 client.once("ready", () => {
-  setInterval(function(){
-      client.channels.cache.forEach(
-        function(channel) {
+  setInterval(function() {
+    client.channels.cache.forEach(
+      function(channel) {
         if (channel.name.startsWith(PingChannelPrefix)) {
-            channel.send("<@&" + PingRoleID + ">")
-}})
-}, PingInterval);
+          channel.send("<@&" + PingRoleID + ">")
+        }
+      })
+  }, PingInterval);
   console.log("Misk Ping Bot enabled!");
 });
 
